@@ -20,6 +20,6 @@ object AsyncTest extends Controller {
   }
 
   def okResponImpInBrowerPost() = Action(parse.json) { implicit request =>
-    Ok("Got request [" + request + "]")
+    Ok("Got body [" + parse.json + "]")
   }
 }

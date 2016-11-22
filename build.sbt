@@ -16,6 +16,17 @@ compileOrder in Compile := CompileOrder.Mixed
 
 transitiveClassifiers := Seq("sources")
 
+libraryDependencies += "io.netty" % "netty" % "3.10.6.Final"
+
+libraryDependencies += "com.typesafe.play" %% "anorm" % "2.5.2"
+
+libraryDependencies += "com.typesafe.play" % "play_2.11" % "2.4.8"
+
+libraryDependencies += "org.bouncycastle" % "bcprov-jdk16" % "1.46"
+
+libraryDependencies += "com.aliyun.oss" % "aliyun-sdk-oss" % "2.3.0"
+
+//scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8", "-Yno-adapted-args")
 scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8")
 
 //retrieveManaged := true
@@ -31,6 +42,7 @@ libraryDependencies ++= {
     "io.spray"            %%   "spray-http" % sprayV,
     "io.spray"            %%   "spray-httpx" % sprayV,
     "io.spray"            %%   "spray-io" % sprayV,
+    //"io.spray"            %%   "spray-testkit" % sprayV,
     "io.spray"            %%   "spray-util" % sprayV,
     "io.spray"            %%   "spray-json" % "1.3.2-j",
     "com.typesafe.akka"   %%   "akka-actor" % akkaV,

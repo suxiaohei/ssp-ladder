@@ -8,7 +8,9 @@ import scala.io.Source
   */
 class IOSource {
 
+  def test(a:String): Unit= {
 
+  }
 
 }
 

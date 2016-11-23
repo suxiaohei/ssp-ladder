@@ -28,6 +28,10 @@ object FileUtils {
   }
 
   def uncompress(files: Iterator[File]) = {
-    files.foreach(f => JzlibUtils.unZip(f))
+    files.foreach(f => {
+      println("开始解压的文件" + f.getName)
+      JzlibUtils.unZip(f)
+    }
+    )
   }
 }

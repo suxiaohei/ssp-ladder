@@ -34,7 +34,7 @@ class Pong extends Actor {
     case StopMessage =>
       println("pong stopped")
       context.stop(self)
-      context.system.shutdown()
+//      context.system.shutdown()
   }
 }
 

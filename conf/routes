@@ -3,14 +3,24 @@
 # ~~~~
 
 # Home page
-GET         /                                    controllers.Application.index
+GET         /                                        controllers.Application.index
 
 # Map static resources from the /public folder to the /assets URL path
-GET         /assets/*file                        controllers.Assets.at(path="/public", file)
+GET         /assets/*file                            controllers.Assets.at(path="/public", file)
 
-GET         /test/printInBrower                  controllers.AsyncTest.printInBrowerGet
-GET         /test/okResponInBrower               controllers.AsyncTest.okResponInBrowerGet
-GET         /test/okResponImpInBrower            controllers.AsyncTest.okResponImpInBrowerGet
-POST        /test/okResponImpInBrowerPost        controllers.AsyncTest.okResponImpInBrowerPost
+GET         /test/printInBrower                      controllers.AsyncTest.printInBrowerGet
+GET         /test/okResponInBrower                   controllers.AsyncTest.okResponInBrowerGet
+GET         /test/okResponImpInBrower                controllers.AsyncTest.okResponImpInBrowerGet
+POST        /test/okResponImpInBrowerPost            controllers.AsyncTest.okResponImpInBrowerPost
+GET         /test/okMessageImpInBrowerGet            controllers.AsyncTest.okMessageImpInBrowerGet
+
+GET         /test/okSessionInBrowerGet               controllers.AsyncTest.okSessionInBrowerGet
+POST        /test/tokenJson                          controllers.AsyncTest.tokenJson
+POST        /test/tokenJson2                         controllers.AsyncTest.tokenJson2
+POST        /test/tokenJson3                         controllers.AsyncTest.tokenJson3
+POST        /test/tokenJson4                         controllers.AsyncTest.tokenJson4
+POST        /test/tokenJson5                         controllers.AsyncTest.tokenJson5
+
+POST        /actionBuilderIndexTest/tokenJson        controllers.LoggingActionTest.tokenJson
 
     

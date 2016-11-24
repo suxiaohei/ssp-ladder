@@ -1,4 +1,4 @@
-package com.ladder.scala.akka
+package com.ladder.scala.akka.actor
 
 import akka.actor._
 

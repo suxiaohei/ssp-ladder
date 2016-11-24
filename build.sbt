@@ -85,4 +85,18 @@ libraryDependencies += "mysql" % "mysql-connector-java" % "5.1.35"
 
 libraryDependencies += "org.quartz-scheduler" % "quartz" % "2.2.3"
 
-libraryDependencies += "commons-io" % "commons-io" % "2.4"
+//libraryDependencies += "commons-io" % "commons-io" % "2.4"
+
+libraryDependencies += "org.apache.commons" % "commons-compress" % "1.12"
+
+libraryDependencies += "commons-io" % "commons-io" % "2.5"
+
+libraryDependencies += "org.apache.commons" % "commons-lang3" % "3.1"
+
+libraryDependencies += "net.sf.sevenzipjbinding" % "sevenzipjbinding-all-windows" % "9.20-2.00beta"
+
+//libraryDependencies += "net.sf.sevenzipjbinding" % "sevenzipjbinding-all-linux" % "9.20-2.00beta"
+
+//libraryDependencies += "net.sf.sevenzipjbinding" % "sevenzipjbinding" % "9.20-2.00beta"
+
+//libraryDependencies += "com.github.ilayze" % "jzlib" % "1.1.3"

@@ -9,7 +9,11 @@ import util.LoggingAction
   */
 object LoggingActionTest extends Controller {
 
-  def tokenJson = LoggingAction { request =>
+  def index = LoggingAction { request =>
     Ok("Save the request to " + request.body)
+  }
+
+  def submit = LoggingAction(parse.text){ request =>
+    Ok("Got body  " + request.body.length + " body long")
   }
 }

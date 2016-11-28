@@ -9,7 +9,7 @@ import util.LoggingAction
 /**
   * Created by suxin on 16-11-10.
   */
-object AsyncTest extends Controller {
+object ActionTest extends Controller {
 
   def printInBrowerGet() = Action {
     Ok("tset")

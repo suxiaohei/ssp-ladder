@@ -8,7 +8,7 @@ import com.ladder.java.JzlibUtils
 /**
   * Created by suxin on 16-11-21.
   */
-class FileUtils {
+class FileUtils extends {
 
 }
 

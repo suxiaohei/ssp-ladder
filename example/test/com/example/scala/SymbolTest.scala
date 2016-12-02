@@ -11,9 +11,18 @@ class SymbolTest extends Specification {
     "persion_model" in {
       val p = new Symbol
       val jsObj =
-      p.persion_model
+        p.persion_model
       ok
     }
 
+    "main" in {
+      val p = Persion("2", "3", 2, 2)
+      val p1 = new Persion1("2", "2", 2, 2)
+
+      p match {
+        case Persion(id, name, age, phone) => println(s"Persion is $id $name")
+      }
+      ok
+    }
   }
 }

@@ -11,6 +11,7 @@ class ActorA {
 }
 
 object ActorA extends CompletableApp(1) {
+
   val actorB = system.actorOf(Props[ActorB],"actorB")
 
   actorB ! "hello , from Actor A"

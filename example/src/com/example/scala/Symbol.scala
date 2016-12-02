@@ -19,14 +19,3 @@ class Symbol {
       Persion(id, name, age, phone)
   }
 }
-
-object main extends App {
-
-  val p = Persion("2", "3", 2, 2)
-  val p1 = new Persion1("2", "2", 2, 2)
-
-  p match {
-    case Persion(id, name, age, phone) => println(s"Persion is $id $name")
-  }
-
-}

@@ -9,8 +9,12 @@ class ApplyAndUnapplyTest extends Specification {
 
   "ApplyAndUnapplyTest" should {
     "unapply" in {
-      val ap = new ApplyAndUnapply
-      ap.unapply(ap).get.toList.map(println(_))
+      val str = "aa bb cc dd"
+      str match {
+        //自动调用ApplyAndUnapply的unapply方法
+        case ApplyAndUnapply(n) => println(s"$str out put is $n")
+        case _ => println("None")
+      }
       ok
     }
 
@@ -24,7 +28,7 @@ class ApplyAndUnapplyTest extends Specification {
         case a: Int => println("Int is " + a)
         case a: String => println("String is " + a)
         case a: (Any, Any, Any) => println(a)
-        case a: List[_] => a.map{ b => println(b); b}
+        case a: List[_] => a.map { b => println(b); b }
         case _ => println("未知的类型")
       }
       ok

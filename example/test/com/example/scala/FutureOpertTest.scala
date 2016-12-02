@@ -73,7 +73,6 @@ class FutureOpertTest extends Specification {
       }
       futureList.map { a =>
         val c = a.map { b =>
-          b
           println(b)
           1
         }

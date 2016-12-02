@@ -34,10 +34,7 @@ libraryDependencies += "org.bouncycastle" % "bcprov-jdk16" % "1.46"
 
 libraryDependencies += "com.aliyun.oss" % "aliyun-sdk-oss" % "2.3.0"
 
-//scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8", "-Yno-adapted-args")
 scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8")
-
-//retrieveManaged := true
 
 libraryDependencies ++= {
   val akkaV = "2.4.12"
@@ -50,7 +47,6 @@ libraryDependencies ++= {
     "io.spray"            %%   "spray-http" % sprayV,
     "io.spray"            %%   "spray-httpx" % sprayV,
     "io.spray"            %%   "spray-io" % sprayV,
-    //"io.spray"            %%   "spray-testkit" % sprayV,
     "io.spray"            %%   "spray-util" % sprayV,
     "io.spray"            %%   "spray-json" % "1.3.2-j",
     "com.typesafe.akka"   %%   "akka-actor" % akkaV,
@@ -93,8 +89,6 @@ libraryDependencies += "mysql" % "mysql-connector-java" % "5.1.35"
 
 libraryDependencies += "org.quartz-scheduler" % "quartz" % "2.2.3"
 
-//libraryDependencies += "commons-io" % "commons-io" % "2.4"
-
 libraryDependencies += "org.apache.commons" % "commons-compress" % "1.12"
 
 libraryDependencies += "commons-io" % "commons-io" % "2.5"
@@ -108,9 +102,3 @@ libraryDependencies += "com.rabbitmq" % "amqp-client" % "4.0.0"
 libraryDependencies += "org.specs2" % "specs2-core_2.11" % "3.6"
 
 libraryDependencies += "org.scala-lang.modules" % "scala-async_2.11" % "0.9.6"
-
-//libraryDependencies += "net.sf.sevenzipjbinding" % "sevenzipjbinding-all-linux" % "9.20-2.00beta"
-
-//libraryDependencies += "net.sf.sevenzipjbinding" % "sevenzipjbinding" % "9.20-2.00beta"
-
-//libraryDependencies += "com.github.ilayze" % "jzlib" % "1.1.3"

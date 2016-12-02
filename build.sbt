@@ -16,6 +16,14 @@ compileOrder in Compile := CompileOrder.Mixed
 
 transitiveClassifiers := Seq("sources")
 
+unmanagedSourceDirectories in Compile += baseDirectory.value / "akkaInAction" / "src"
+unmanagedSourceDirectories in Test += baseDirectory.value / "akkaInAction" / "test"
+unmanagedResourceDirectories in Assets += baseDirectory.value / "akkaInAction" / "public"
+
+unmanagedSourceDirectories in Compile += baseDirectory.value / "example" / "src"
+unmanagedSourceDirectories in Test += baseDirectory.value / "example" / "test"
+unmanagedResourceDirectories in Assets += baseDirectory.value / "example" / "public"
+
 libraryDependencies += "io.netty" % "netty" % "3.10.6.Final"
 
 libraryDependencies += "com.typesafe.play" %% "anorm" % "2.5.2"
@@ -94,6 +102,12 @@ libraryDependencies += "commons-io" % "commons-io" % "2.5"
 libraryDependencies += "org.apache.commons" % "commons-lang3" % "3.1"
 
 libraryDependencies += "net.sf.sevenzipjbinding" % "sevenzipjbinding-all-windows" % "9.20-2.00beta"
+
+libraryDependencies += "com.rabbitmq" % "amqp-client" % "4.0.0"
+
+libraryDependencies += "org.specs2" % "specs2-core_2.11" % "3.6"
+
+libraryDependencies += "org.scala-lang.modules" % "scala-async_2.11" % "0.9.6"
 
 //libraryDependencies += "net.sf.sevenzipjbinding" % "sevenzipjbinding-all-linux" % "9.20-2.00beta"
 

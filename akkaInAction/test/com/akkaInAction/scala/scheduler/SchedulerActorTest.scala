@@ -12,7 +12,8 @@ class SchedulerActorTest extends Specification {
   "SchedulerActorTest" should {
     "main" in {
 
-      implicit val ec = play.api.libs.concurrent.Execution.Implicits.defaultContext
+//      implicit val ec = play.api.libs.concurrent.Execution.Implicits.defaultContext
+      import scala.concurrent.ExecutionContext.Implicits.global
 
       val system = ActorSystem("SchedulerActorTest")
       val schedulerActor = system.actorOf(Props[SchedulerActor], "schedulerActor")

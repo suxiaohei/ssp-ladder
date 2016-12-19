@@ -35,13 +35,13 @@ class FutureOpertTest extends Specification {
 
       implicit val ec = play.api.libs.concurrent.Execution.Implicits.defaultContext
       //测试Future的转换
-      /*val listOfFutures = List.fill(10) {
+      val listOfFutures = List.fill(10) {
         val fm = Future {
           100
         }.mapTo[Int]
         fm
-      }*/
-      val listOfFutures: List[Future[Int]] = Nil
+      }
+      //      val listOfFutures: List[Future[Int]] = Nil
       val futureList = Future.sequence(listOfFutures)
       //异步执行
       futureList.map { s =>
@@ -64,14 +64,13 @@ class FutureOpertTest extends Specification {
 
     "future.traverse" in {
 
-      //      implicit val ec = play.api.libs.concurrent.Execution.Implicits.defaultContext
       import scala.concurrent.ExecutionContext.Implicits.global
 
       val listInt = List.fill(2)(1, 2, 3, 4, 5, 5)
       //Seq转换为Future
       val futureList = Future.traverse(listInt) { a => Future {
         new String("" + a)
-      }.mapTo[String]
+        }.mapTo[String]
       }
       futureList.map { a =>
         val c = a.map { b =>
@@ -125,7 +124,7 @@ class FutureOpertTest extends Specification {
       }
 
       future1 onSuccess {
-        case msg => println("==================" + msg )
+        case msg => println("==================" + msg)
       }
 
 

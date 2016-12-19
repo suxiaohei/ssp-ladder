@@ -112,22 +112,20 @@ class FutureOpertTest extends Specification {
       import scala.concurrent.ExecutionContext.Implicits.global
 
       val future = Future {
-        throw new InterruptedException
+        None.get
       }
 
       val future1 = Future {
-        "Hello" + "World" + "=================="
+        "Hello " + "World" + "=================="
       }
 
       future onFailure {
-        case msg => println(msg)
+        case msg => println("失败");println(msg)
       }
 
       future1 onSuccess {
-        case msg => println("==================" + msg)
+        case msg => println(msg)
       }
-
-
       future foreach println
       future1 foreach println
       ok

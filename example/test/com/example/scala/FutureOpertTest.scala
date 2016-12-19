@@ -194,5 +194,36 @@ class FutureOpertTest extends Specification {
       }
       ok
     }
+
+    "asynctest3" in {
+      import scala.async.Async._
+      import scala.concurrent.ExecutionContext.Implicits.global
+
+      val result = async {
+        val result2 = async {
+          val te = scala.async.Async.await {
+            val fuList = Future[List[Int]](
+              List[Int](1, 2, 2, 3, 4)
+            )
+            fuList.flatMap {
+              case l if l.head == 2 => Future.successful(l.head)
+              case _ => Future.failed(new RuntimeException("test1111"))
+            }
+          }
+          te
+        }
+        result2 onComplete {
+          case scala.util.Success(msg) => println("success2 " + msg)
+          case scala.util.Failure(e) =>
+            println("result2 " + e)
+            404
+        }
+      }
+      result onComplete {
+        case scala.util.Success(msg) => println("success1 " + msg)
+        case scala.util.Failure(e) => println("result1 " + e)
+      }
+      ok
+    }
   }
 }

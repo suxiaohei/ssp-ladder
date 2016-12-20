@@ -1,8 +1,11 @@
 package com.example.scala
 
 import org.specs2.mutable.Specification
+import play.Logger
 
 import scala.concurrent.Future
+import scala.async.Async._
+import scala.concurrent.ExecutionContext.Implicits.global
 
 /**
   * Created by suxin on 16-12-1.
@@ -33,7 +36,6 @@ class FutureOpertTest extends Specification {
 
     "future.sequence" in {
 
-      implicit val ec = play.api.libs.concurrent.Execution.Implicits.defaultContext
       //测试Future的转换
       val listOfFutures = List.fill(10) {
         val fm = Future {
@@ -64,27 +66,35 @@ class FutureOpertTest extends Specification {
 
     "future.traverse" in {
 
-      import scala.concurrent.ExecutionContext.Implicits.global
-
-      val listInt = List.fill(2)(1, 2, 3, 4, 5, 5)
-      //Seq转换为Future
-      val futureList = Future.traverse(listInt) { a => Future {
-        new String("" + a)
-      }.mapTo[String]
-      }
-      futureList.map { a =>
-        val c = a.map { b =>
-          println(b)
-          1
+      val listInt1 = List(1, 2, 3, 4, 5, 5)
+      val t1 = Future.traverse(listInt1) { v =>
+        Future {
+          v
         }
-        c.map { d => println(d) }
       }
+      t1.map { v =>
+        v map println
+      }
+      //
+      //      val listInt = List.fill(2)(1, 2, 3, 4, 5, 5)
+      //
+      //      //Seq转换为Future
+      //      val futureList = Future.traverse(listInt) { a =>
+      //        Future {
+      //          new String("" + a)
+      //        }.mapTo[String]
+      //      }
+      //      futureList.map { a =>
+      //        val c = a.map { b =>
+      //          println(b)
+      //          1
+      //        }
+      //        c.map { d => println(d) }
+      //      }
       ok
     }
 
     "future pr" in {
-      import scala.concurrent.ExecutionContext.Implicits.global
-
       Future {
         println("Hello" + "World")
       }
@@ -96,8 +106,6 @@ class FutureOpertTest extends Specification {
     }
 
     "future.map" in {
-      import scala.concurrent.ExecutionContext.Implicits.global
-
       val f1 = Future {
         "Hello" + "World"
       }
@@ -109,8 +117,6 @@ class FutureOpertTest extends Specification {
     }
 
     "future.foreach" in {
-      import scala.concurrent.ExecutionContext.Implicits.global
-
       val future = Future {
         Future.failed(new RuntimeException(s"failed when OssAliyunGallery.Get_Url_Info(${11}) !"))
         //        None.get
@@ -137,9 +143,6 @@ class FutureOpertTest extends Specification {
     }
 
     "asynctest" in {
-
-      import scala.async.Async._
-      import scala.concurrent.ExecutionContext.Implicits.global
 
       val result = async {
 
@@ -172,9 +175,6 @@ class FutureOpertTest extends Specification {
     }
 
     "asynctest2" in {
-      import scala.async.Async._
-      import scala.concurrent.ExecutionContext.Implicits.global
-
 
       val result = async {
         val te = scala.async.Async.await {
@@ -196,9 +196,6 @@ class FutureOpertTest extends Specification {
     }
 
     "asynctest3" in {
-      import scala.async.Async._
-      import scala.concurrent.ExecutionContext.Implicits.global
-
       val result = async {
         val result2 = async {
           val te = scala.async.Async.await {
@@ -225,5 +222,55 @@ class FutureOpertTest extends Specification {
       }
       ok
     }
+
+    "asynctest4" in {
+
+      val list = List(1, 2, 3, 4, 5)
+      val list2 = List(6, 7, 2, 8, 1, 9, 10)
+
+      list.map { va =>
+        val list3 = Future.traverse(list2) {
+//          case v if v != va => Future(v + " test")
+//          case _ => Future.failed(new RuntimeException("excepiton"))
+                    v =>
+                      Future.failed(new RuntimeException("excepiton"))
+        }
+
+        list3 onComplete {
+          case scala.util.Success(msg) => print(msg + " ")
+          case scala.util.Failure(e) => Logger.error("failed when get list", e)
+        }
+      }
+      ok
+    }
+
+    "asynctest5" in {
+
+
+      val result = async {
+        val list2 = List(6, 7, 2, 8, 1, 9, 10)
+        val result1 =  Future.traverse(list2) { v =>
+          val result2 =  async {
+            scala.async.Async.await(Future(println(1 + " " + v)))
+            scala.async.Async.await(Future(println(2 + " " + v)))
+            scala.async.Async.await(Future(println(31)))
+            Future.failed(new RuntimeException("excepiton"))
+            scala.async.Async.await(Future(println(4)))
+          }
+          result2
+        }
+        result1 onComplete {
+          case scala.util.Success(msg) =>
+          case scala.util.Failure(e) => Logger.error("failed when get list", e)
+        }
+      }
+
+//      result onComplete {
+//        case scala.util.Success(msg) => print(msg + " ")
+//        case scala.util.Failure(e) => Logger.error("failed when get list", e)
+//      }
+      ok
+    }
   }
+
 }

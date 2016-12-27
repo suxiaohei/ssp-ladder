@@ -230,10 +230,10 @@ class FutureOpertTest extends Specification {
 
       list.map { va =>
         val list3 = Future.traverse(list2) {
-//          case v if v != va => Future(v + " test")
-//          case _ => Future.failed(new RuntimeException("excepiton"))
-                    v =>
-                      Future.failed(new RuntimeException("excepiton"))
+          //          case v if v != va => Future(v + " test")
+          //          case _ => Future.failed(new RuntimeException("excepiton"))
+          v =>
+            Future.failed(new RuntimeException("excepiton"))
         }
 
         list3 onComplete {
@@ -249,8 +249,8 @@ class FutureOpertTest extends Specification {
 
       val result = async {
         val list2 = List(6, 7, 2, 8, 1, 9, 10)
-        val result1 =  Future.traverse(list2) { v =>
-          val result2 =  async {
+        val result1 = Future.traverse(list2) { v =>
+          val result2 = async {
             scala.async.Async.await(Future(println(1 + " " + v)))
             scala.async.Async.await(Future(println(2 + " " + v)))
             scala.async.Async.await(Future(println(31)))
@@ -265,10 +265,26 @@ class FutureOpertTest extends Specification {
         }
       }
 
-//      result onComplete {
-//        case scala.util.Success(msg) => print(msg + " ")
-//        case scala.util.Failure(e) => Logger.error("failed when get list", e)
-//      }
+      //      result onComplete {
+      //        case scala.util.Success(msg) => print(msg + " ")
+      //        case scala.util.Failure(e) => Logger.error("failed when get list", e)
+      //      }
+      ok
+    }
+
+    "asynctest6" in {
+
+
+      val list2 = List(6, 7, 2, 8, 1, 9, 10)
+
+      val newList = Future.traverse(list2){ v =>
+        async{
+            v + 10
+        }
+      }
+
+      newList.map{ list => list map println}
+
       ok
     }
   }

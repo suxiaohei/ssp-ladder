@@ -26,6 +26,7 @@ class RedisConnTest extends Specification {
 
       val conn1 = jedisPool.getResource
       val conn2 = jedisPool.getResource
+
       if (conn1 == conn2) {
         println("相同")
       } else {

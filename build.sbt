@@ -81,6 +81,8 @@ libraryDependencies += "com.typesafe.play" %% "anorm" % "2.5.2"
 
 libraryDependencies += "com.typesafe.play" % "play_2.11" % "2.4.8"
 
+libraryDependencies += "com.typesafe.play.modules" %% "play-modules-redis" % "2.4.1"
+
 libraryDependencies += "org.bouncycastle" % "bcprov-jdk16" % "1.46"
 
 libraryDependencies += "com.aliyun.oss" % "aliyun-sdk-oss" % "2.3.0"

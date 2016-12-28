@@ -190,7 +190,7 @@ class FutureOpertTest extends Specification {
       }
       result onComplete {
         case scala.util.Success(msg) => println(msg)
-        case scala.util.Failure(e) => println(e)
+        case scala.util.Failure(e) => println(e + "===========================")
       }
       ok
     }
@@ -209,6 +209,7 @@ class FutureOpertTest extends Specification {
           }
           te
         }
+
         result2 onComplete {
           case scala.util.Success(msg) => println("success2 " + msg)
           case scala.util.Failure(e) =>

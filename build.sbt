@@ -24,9 +24,9 @@ unmanagedSourceDirectories in Compile += baseDirectory.value / "example" / "src"
 unmanagedSourceDirectories in Test += baseDirectory.value / "example" / "test"
 unmanagedResourceDirectories in Assets += baseDirectory.value / "example" / "public"
 
-unmanagedSourceDirectories in Compile += baseDirectory.value / "jedisInScala" / "src"
-unmanagedSourceDirectories in Test += baseDirectory.value / "jedisInScala" / "test"
-unmanagedResourceDirectories in Assets += baseDirectory.value / "jedisInScala" / "public"
+//unmanagedSourceDirectories in Compile += baseDirectory.value / "jedisInScala" / "src"
+//unmanagedSourceDirectories in Test += baseDirectory.value / "jedisInScala" / "test"
+//unmanagedResourceDirectories in Assets += baseDirectory.value / "jedisInScala" / "public"
 
 libraryDependencies += "io.netty" % "netty" % "3.10.6.Final"
 
@@ -110,3 +110,5 @@ libraryDependencies += "org.specs2" % "specs2-core_2.11" % "3.6"
 libraryDependencies += "org.scala-lang.modules" % "scala-async_2.11" % "0.9.6"
 
 libraryDependencies += "redis.clients" % "jedis" % "2.9.0"
+
+libraryDependencies += "com.google.inject" % "guice" % "4.0"

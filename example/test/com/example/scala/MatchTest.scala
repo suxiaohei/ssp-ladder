@@ -5,7 +5,8 @@ import anorm._
 import anorm.SqlParser._
 import org.specs2.execute.{AsResult, Result}
 import play.api.db.DB
-import play.api.test.{WithApplication}
+import play.api.test.WithApplication
+import spray.json.JsNull
 
 /**
   * Created by suxin on 16-12-27.
@@ -52,6 +53,35 @@ class MatchTest extends Specification {
       val x = Map("one" -> 1, "two" -> 2, "three" -> 3)
 
       List("1" -> 2, "2" -> 3)  map println
+      ok
+    }
+
+    "MatchSome3" in {
+      val opt1 = None
+      val opt2 = Option{null}
+      val opt3 = Option{0}
+      println(opt1.isDefined)
+      println(opt2.isDefined)
+      println(opt3.isDefined)
+      ok
+    }
+
+    "MatchSome4" in {
+      val opt1 = Option{1}
+      val opt2 = Some{0}
+      opt1 match {
+        case Some(i) => println(i)
+      }
+      opt2 match {
+        case Some(i) => println(i)
+      }
+      println(opt1.isDefined)
+      println(opt2.isDefined)
+      ok
+    }
+
+    "MatchSome5" in  {
+      println(JsNull)
       ok
     }
   }

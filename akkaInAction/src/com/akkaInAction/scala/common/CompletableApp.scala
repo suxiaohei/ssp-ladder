@@ -33,4 +33,5 @@ class CompletableApp(val setps: Int) extends App {
   }
 
   def completedStep() = completion.countDown()
+
 }

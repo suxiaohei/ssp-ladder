@@ -4,7 +4,7 @@ import play.api.libs.json.JsValue
 import play.api.mvc._
 import java.io.File
 
-import util.LoggingAction
+import util.{LoggingAction, RouteTest}
 
 /**
   * Created by suxin on 16-11-10.
@@ -12,7 +12,9 @@ import util.LoggingAction
 object ActionTest extends Controller {
 
   def printInBrowerGet() = Action {
-    Ok("tset")
+    RouteTest.configuration.underlying.atKey("test")
+    RouteTest.configuration.underlying.atKey("test")
+    Ok("test")
   }
 
   def okResponInBrowerGet() = Action { request =>

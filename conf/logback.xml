@@ -47,7 +47,7 @@
         <appender-ref ref="SHOPPING_APPENDER"/>
     </logger>
     <logger name="play" level="INFO"/>
-    <logger name="application" level="DEBUG"/>
+    <logger name="application" level="INFO"/>
 
     <root level="DEBUG">
         <appender-ref ref="STDOUT"/>

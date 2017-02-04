@@ -24,5 +24,10 @@ class SymbolTest extends Specification {
       }
       ok
     }
+
+    "ne" in {
+      println(null == null)
+      ok
+    }
   }
 }

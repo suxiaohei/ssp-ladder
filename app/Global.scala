@@ -6,7 +6,7 @@ import play.api.{Application, GlobalSettings, Logger}
 object Global extends GlobalSettings {
 
   override def onStart(app: Application) = {
-    Logger.info("程序启动 ==========================")
+    Logger.info("Application was Started==========================")
   }
 
 }

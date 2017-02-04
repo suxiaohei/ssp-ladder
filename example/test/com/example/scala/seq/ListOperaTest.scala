@@ -76,7 +76,6 @@ class ListOperaTest extends Specification {
       println(test)
       println(list)
       ok
-
     }
   }
 }

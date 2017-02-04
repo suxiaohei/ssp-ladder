@@ -9,5 +9,6 @@ object ScalaMain {
     val foo: Foo = new Main()
     println(foo.someMethod())
     println(foo.newMethod())
+
   }
 }

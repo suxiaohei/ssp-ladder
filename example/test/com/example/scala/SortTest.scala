@@ -9,7 +9,6 @@ class SortTest extends Specification {
 
   "SortTest" should {
     "qsort" in {
-
       ok
     }
 

@@ -13,15 +13,15 @@ class TypeTagsTest extends Specification {
     "defineTypeTag" in {
 
       import scala.reflect.api.TypeTags
-      val t = TypeTag[List[String]]
+//      val t = TypeTag[List[String]]
       ok
     }
 
     "defineClassTag" in {
 
       import scala.reflect.classTag
-      val c = ClassTag[Int]
-      println(c)
+//      val c = ClassTag[Int]
+//      println(c)
 
       import scala.reflect.runtime.universe._
       val tt = typeTag[Int]

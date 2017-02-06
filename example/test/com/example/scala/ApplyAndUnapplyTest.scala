@@ -19,6 +19,10 @@ class ApplyAndUnapplyTest extends Specification {
     }
 
     "apply" in {
+      val newAp = new ApplyAndUnapply
+      newAp()
+      val ap = ApplyAndUnapply()
+      println(ap)
       ok
     }
 

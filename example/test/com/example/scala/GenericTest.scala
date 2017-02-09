@@ -13,18 +13,20 @@ class GenericTest extends Specification {
       class Animal {}
       class Bird extends Animal {}
       class Pigeon extends Bird {}
-      class Consumer[+T](t:T) {
-        def use[U >: T](u: U):T= {
-          println(t)
-          t
+      class Consumer[+T] {
+        def use[U >: T](u: U) = {
+          println(u)
         }
       }
       class FInvok {
-        def invok(con : Consumer[Bird]) = {
-          con.use()
+        def invok(con: Consumer[Bird]) = {
+          con.use(new Bird)
+          con.use(new Animal)
+          con.use(new Pigeon)
         }
       }
-      val con_pigeon = new Consumer[Pigeon](new Pigeon)
+
+      val con_pigeon = new Consumer[Bird]
       val fi = new FInvok
       fi.invok(con_pigeon)
       ok
@@ -34,9 +36,15 @@ class GenericTest extends Specification {
       class Animal {}
       class Bird extends Animal {}
 
-      class Consumer[-T](t: T) {
-
+      class Consumer[T] {
+        def use[U <: T](u: U) = {
+        }
       }
+
+      val c = new Consumer[Animal]
+      val c1 = new Consumer[Bird]
+      c.use(new Bird)
+//      c1.use(new Animal) /**type mismatch**/
       ok
     }
   }

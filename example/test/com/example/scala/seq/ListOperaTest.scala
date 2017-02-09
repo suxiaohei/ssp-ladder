@@ -72,9 +72,10 @@ class ListOperaTest extends Specification {
     }
     "-> ::" in {
 
-      val test = 'test -> 1 :: list
+      val list1 = Nil
+      val test = 'test -> 1 :: list1
       println(test)
-      println(list)
+      println(list1)
       ok
     }
   }

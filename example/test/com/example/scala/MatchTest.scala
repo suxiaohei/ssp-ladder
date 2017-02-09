@@ -71,9 +71,11 @@ class MatchTest extends Specification {
       val opt2 = Some{0}
       opt1 match {
         case Some(i) => println(i)
+        case _ => 1
       }
       opt2 match {
         case Some(i) => println(i)
+        case _ => 1
       }
       println(opt1.isDefined)
       println(opt2.isDefined)

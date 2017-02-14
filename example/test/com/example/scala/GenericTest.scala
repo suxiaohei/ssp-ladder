@@ -34,11 +34,8 @@ class GenericTest extends Specification {
       case class Book()
       val con_bird = new Consumer[Bird0]
       val a = con_bird.use(new Animal)
-      a
       val t = con_bird.use(new Pigeon)
-      t
       val s = con_bird.use(Nil)
-      s
       val test: Consumer[Animal] = con_bird
       test.use(new Animal())
       test.use(Book())

@@ -11,7 +11,7 @@ object DemoActor {
   def props(magicNumber: Long): Props = Props(new DemoActor(magicNumber))
 }
 
-class DemoActor(magicNumber: Long) extends Actor {
+class DemoActor(magicNumber:  Long) extends Actor {
   override def receive: Receive = {
     case x: Int => sender() ! (x + magicNumber)
   }

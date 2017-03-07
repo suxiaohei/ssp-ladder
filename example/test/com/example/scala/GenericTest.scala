@@ -1,5 +1,7 @@
 package com.example.scala
 
+import java.text.SimpleDateFormat
+
 import org.specs2.mutable.Specification
 
 /**
@@ -113,6 +115,14 @@ class GenericTest extends Specification {
       Library.printBokkListByTrait(new GetInfoAction[Publication, String] {
         def apply(p: Publication): String = p.title
       })
+      ok
+    }
+
+    "test4" in {
+      def `yyyy-MM-dd` = new SimpleDateFormat("yyyy-MM-dd")
+      val before_day = `yyyy-MM-dd`.parse(`yyyy-MM-dd`.format(new java.util.Date()))
+      if(`yyyy-MM-dd`.parse("2016-10-11").compareTo(before_day) < 0)
+        println (before_day)
       ok
     }
   }

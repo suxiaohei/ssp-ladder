@@ -52,7 +52,7 @@ libraryDependencies ++= {
     "io.spray"            %%   "spray-httpx" % sprayV,
     "io.spray"            %%   "spray-io" % sprayV,
     "io.spray"            %%   "spray-util" % sprayV,
-    "io.spray"            %%   "spray-json" % "1.3.2-j",
+    "io.spray"            %%   "spray-json" % sprayV,
     "com.typesafe.akka"   %%   "akka-actor" % akkaV,
     "com.typesafe.akka"   %%   "akka-agent" % akkaV,
     "com.typesafe.akka"   %%   "akka-camel" % akkaV,

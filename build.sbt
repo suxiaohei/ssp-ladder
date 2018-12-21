@@ -20,14 +20,6 @@ unmanagedSourceDirectories in Compile += baseDirectory.value / "akkaInAction" / 
 unmanagedSourceDirectories in Test += baseDirectory.value / "akkaInAction" / "test"
 unmanagedResourceDirectories in Assets += baseDirectory.value / "akkaInAction" / "public"
 
-unmanagedSourceDirectories in Compile += baseDirectory.value / "example" / "src"
-unmanagedSourceDirectories in Test += baseDirectory.value / "example" / "test"
-unmanagedResourceDirectories in Assets += baseDirectory.value / "example" / "public"
-
-//unmanagedSourceDirectories in Compile += baseDirectory.value / "jedisInScala" / "src"
-//unmanagedSourceDirectories in Test += baseDirectory.value / "jedisInScala" / "test"
-//unmanagedResourceDirectories in Assets += baseDirectory.value / "jedisInScala" / "public"
-
 libraryDependencies += "io.netty" % "netty" % "3.10.6.Final"
 
 libraryDependencies += "com.typesafe.play" %% "anorm" % "2.5.2"

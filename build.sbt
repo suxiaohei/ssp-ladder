@@ -26,10 +26,6 @@ unmanagedSourceDirectories in Compile += baseDirectory.value / "akkaInAction" / 
 unmanagedSourceDirectories in Test += baseDirectory.value / "akkaInAction" / "test"
 unmanagedResourceDirectories in Assets += baseDirectory.value / "akkaInAction" / "public"
 
-unmanagedSourceDirectories in Compile += baseDirectory.value / "sparkInAction" / "src"
-unmanagedSourceDirectories in Test += baseDirectory.value / "sparkInAction" / "test"
-unmanagedResourceDirectories in Assets += baseDirectory.value / "sparkInAction" / "public"
-
 libraryDependencies += "io.netty" % "netty" % "3.10.6.Final"
 
 libraryDependencies += "com.typesafe.play" %% "anorm" % "2.5.2"
@@ -114,10 +110,4 @@ libraryDependencies += "org.scala-lang.modules" % "scala-async_2.11" % "0.9.6"
 libraryDependencies += "redis.clients" % "jedis" % "2.9.0"
 
 libraryDependencies += "com.google.inject" % "guice" % "4.0"
-
-// 大数据相关
-libraryDependencies += "org.apache.spark" %% "spark-hive" % "2.4.0-cdh6.1.0"
-//libraryDependencies += "org.apache.spark" %% "spark-core" % "2.4.0"
-//libraryDependencies += "org.apache.spark" %% "spark-sql" % "2.4.0"
-//libraryDependencies += "org.apache.spark" %% "spark-yarn" % "2.4.0"
 
